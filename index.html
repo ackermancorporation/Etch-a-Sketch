@@ -6,7 +6,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Etch a Sketch</title>
 </head>
-<body>
+
+<style>
+
+    body{
+        height:90vh;
+        background-color: lightblue;
+        display:flex;
+        justify-content: center;
+        
+    }
+
     
+    .squareContainer{
+        margin-top:1em;
+        height:40em;
+        width: 40em;
+        background-color: white;
+        display:flex;
+        flex-wrap:wrap;
+    }
+
+    
+
+    .columnSquare{
+        display:flex;
+        flex-direction: column;
+        flex:1;
+    }
+
+    .square{
+        display:flex;
+        flex:1;
+        border:solid 1px;
+    }
+    .changeOnHover{
+        background-color: black;
+
+    }
+
+</style>
+<body>
+
+<div class = "squareContainer" id = "squareContainer"></div> 
+    
+
+
+
+
 </body>
+
+
+
+<script>
+const squareContainer = document.querySelector("#squareContainer");
+function addSquaresOnContainer(numberOfSquares){
+    for(i = 0; i < numberOfSquares; i++){
+        let columnSquare = document.createElement("div");
+        columnSquare.classList.add('columnSquare');
+        squareContainer.appendChild(columnSquare);
+        for (u = 0; u < numberOfSquares ; u++){
+            let square = document.createElement("div");
+            square.classList.add('square');
+            square.setAttribute('id','square')
+            columnSquare.appendChild(square);
+        }
+    }
+    const square = document.querySelectorAll("#square");
+    
+    square.addEventListener('mouseover', (event)=> {
+    square.style.cssText="background-color:black;"
+    
+})
+}
+
+
+</script>
 </html>
