@@ -72,14 +72,16 @@ function addSquaresOnContainer(numberOfSquares){
             columnSquare.appendChild(square);
         }
     }
-    const square = document.querySelectorAll("#square");
+    let squareSelector = document.querySelectorAll("#square");
     
-    square.addEventListener('mouseover', (event)=> {
-    square.style.cssText="background-color:black;"
-    
-})
+    for (x=0; x < squareSelector.length; x++){
+        let squareSelectorListener = squareSelector[x];
+        squareSelector[x].addEventListener('mouseover', (event)=> {
+        squareSelectorListener.classList.add('changeOnHover');    
+        })
 }
 
+}
 
 </script>
 </html>
