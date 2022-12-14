@@ -13,7 +13,9 @@
         height:90vh;
         background-color: lightblue;
         display:flex;
-        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        padding:20px;
         
     }
 
@@ -38,7 +40,7 @@
     .square{
         display:flex;
         flex:1;
-        border:solid 1px;
+        border:solid 0.5px;
     }
     .changeOnHover{
         background-color: black;
@@ -47,6 +49,11 @@
 
 </style>
 <body>
+<div style = "height:25px;border:solid;margin-bottom:30px;" > 
+    <input type = "range" min ='1' max ='100' valeu = '50' class = "slider" id = 'myRange'>
+    <button id = "setGridDimension">Go</button>
+    <p>Dimension <span id = "demo"></span>x<span id = "demo2"></span></p>
+</div>
 
 <div class = "squareContainer" id = "squareContainer"></div> 
     
@@ -72,16 +79,36 @@ function addSquaresOnContainer(numberOfSquares){
             columnSquare.appendChild(square);
         }
     }
+
     let squareSelector = document.querySelectorAll("#square");
-    
     for (x=0; x < squareSelector.length; x++){
         let squareSelectorListener = squareSelector[x];
         squareSelector[x].addEventListener('mouseover', (event)=> {
         squareSelectorListener.classList.add('changeOnHover');    
         })
 }
-
 }
+var slider = document.getElementById("myRange");
+var output = document.getElementById("demo");
+var output2 = document.getElementById("demo2");
+output.innerHTML = slider.value;
+output2.innerHTML = slider.value;
+
+slider.oninput = function sliderSelector() {
+  output.innerHTML = this.value;
+  output2.innerHTML = this.value;
+  
+}
+
+const setGridDimension = document.querySelector("#setGridDimension");
+setGridDimension.addEventListener('click', ()=> {
+    squareContainer.textContent = "";
+    addSquaresOnContainer(output.innerHTML);
+
+
+});
+
+
 
 </script>
 </html>
