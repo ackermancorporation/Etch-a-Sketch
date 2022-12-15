@@ -15,13 +15,14 @@
         display:flex;
         flex-direction: column;
         align-items: center;
-        padding:20px;
+        padding:10px;
+        font-family: Arial, Helvetica, sans-serif;
         
     }
 
     
     .squareContainer{
-        margin-top:1em;
+        
         height:40em;
         width: 40em;
         background-color: white;
@@ -108,24 +109,131 @@
     border-radius: 50%;
     }
     
+    .mainContainer{
+        display: flex;
+    }
+    .buttonContainer{
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        gap:5px;
+        width:350px;
+    }
+    .rainbowModeMenu{
+        display:flex;
+        margin-top:10px;
+        align-items:center;
+        flex-direction: row;
+        margin-top:30px;
+    }
+    h1{
+        margin:0;
+        padding:0;
+    }
+    .dimensionMenu{
+        display:flex;
+        flex-direction:row;
+        align-items:center;
+        margin:0;
+    }
+
+
+/* CSS */
+.button-40 {
+  background-color: #111827;
+  border: 1px solid transparent;
+  border-radius: .75rem;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  flex: 0 0 auto;
+  font-family: "Inter var",ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: .2rem;
+  text-align: center;
+  text-decoration: none #6B7280 solid;
+  text-decoration-thickness: auto;
+  transition-duration: .2s;
+  transition-property: background-color,border-color,color,fill,stroke;
+  transition-timing-function: cubic-bezier(.4, 0, 0.2, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 60px;
+}
+
+.button-40:hover {
+  background-color: #374151;
+}
+
+.button-40:focus {
+  box-shadow: none;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+@media (min-width: 500px) {
+  .button-40 {
+    padding: .75rem .75rem;
+  }
+}
+
+.footer {
+    display:flex;
+    align-items:center;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height:30px;
+    background-color: black;
+    color: white;
+    justify-content: center;
+}
+
 
 </style>
 <body>
-<div style = "height:25px;border:solid;margin-bottom:30px;" > 
-    <input type = "range" min ='1' max ='100' value = '50' class = "rangeslider" id = 'myRange'>
-    <button id = "setGridDimension">Go</button>
-    <p>Dimension <span id = "demo"></span>x<span id = "demo2"></span></p>
-</div>
+<h1>Etch-a-Sketch 🖌️</h1>
 
-<label class="switch" >
-    <input id = "switch" type="checkbox">
-    <span class="slider round"></span>
-</label>
 
-<div class = "squareContainer" id = "squareContainer"></div> 
+
+
+<div class = "mainContainer">
+    <div class = "buttonContainer"  style="border:solid 1px;" > 
+        
+        <div class = "dimensionMenu">
+            <p>Set grid dimension <span id = "demo"></span>x<span id = "demo2"></span></p>
+            <input type = "range" min ='1' max ='100' value = '50' class = "rangeslider" id = 'myRange'>
+            
+        </div>
+        <button class="button-40" role="button" id = "setGridDimension">Go</button>
+        <div class = "rainbowModeMenu">
+            <p>Toggle Rainbow Mode</p>
+            <label class="switch" >
+                <input id = "switch" type="checkbox">
+                <span class="slider round"></span>
+            </label>
+        </div>
+        <div class = "instructions">
+            <p><b>Instructions</b></p>
+            <p>Set the grid dimension in the slider and click "Go" to start drawing.</p>
+            <p>Toggle rainbow mode to draw with random colors</p>
+
+
+        </div>
+    </div>
+    <div class = "squareContainer" id = "squareContainer"></div> 
     
 
+</div>
 
+<div class="footer">
+    <p style="margin:0;padding:0;">Daniel Arias &nbsp;</p>
+    <a href = "https://github.com/ackermancorporation" target="_blank">
+        <img style = "height:20px;"src ="\\wsl$\Ubuntu\home\daniel\etch-a-sketch\Etch-a-Sketch\github-mark-white.png"></a>
+  </div>
 
 
 </body>
